@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1354965f78624f1e9096a955e56da60c" Name="Diagram1">
+        <EntityTypeShape EntityType="DbMvcOkulModel.OgrenciLogin" Width="1.5" PointX="7.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBL_DERSLER" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBL_KULUPLER" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBL_NOTLAR" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBL_OGRENCILER" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.tblCanliDersler" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_tblNotlar_tblDersler" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_tblOgrenciler_tblKulupler" ManuallyRouted="false" />
+        <AssociationConnector Association="DbMvcOkulModel.FK_tblNotlar_tblOgrenciler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

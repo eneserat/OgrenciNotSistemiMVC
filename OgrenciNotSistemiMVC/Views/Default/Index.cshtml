@@ -1,0 +1,25 @@
+﻿@using OgrenciNotSistemiMVC.Models.EntityFramework;
+@model List<TBL_DERSLER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-striped table-hover align-middle text-center shadow-sm rounded border-0">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th scope="col">DERS ID</th>
+            <th scope="col">DERS ADI</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var drs in Model)
+        {
+            <tr class="table-row">
+                <td>@drs.DERSID</td>
+                <td>@drs.DERSAD</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

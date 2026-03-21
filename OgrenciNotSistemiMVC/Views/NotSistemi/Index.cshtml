@@ -1,0 +1,41 @@
+﻿@using OgrenciNotSistemiMVC.Models.EntityFramework;
+@model List<TBL_NOTLAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form asp-action="OgrenciEkle" method="post">
+    <div class="mb-3">
+        <label>Ders Adını Seçin </label>
+        <select class="form-select" asp-for="DERSAD" asp-items="ViewBag.Dersler">
+            <option value="">Seçiniz</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label>1. Sınav Notunu Girin </label>
+        <input type="text" class="form-control" asp-for="SINAV1" />
+    </div>
+
+    <div class="mb-3">
+        <label>2. Sınav Notunu Girini </label>
+        <input type="text" class="form-control" asp-for="SINAV2" />
+    </div>
+
+    <div class="mb-3">
+        <label>3. Sınav Notunu Girin</label>
+        <input type="text" class="form-control" asp-for="SINAV3" />
+    </div>
+
+    <div class="mb-3">
+        <label> Proje Notunu Girin </label>
+        <input type="text" class="form-control " asp-for="PROJE" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        <i class="fas fa-calculator me-2"></i>  HESAPLA
+    </button>
+</form>

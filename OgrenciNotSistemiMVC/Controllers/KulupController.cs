@@ -7,14 +7,13 @@ using OgrenciNotSistemiMVC.Models.EntityFramework;
 
 namespace OgrenciNotSistemiMVC.Controllers
 {
-    public class DefaultController : Controller
+    public class KulupController : Controller
     {
-        DbMvcOkulEntities db = new DbMvcOkulEntities();
-     
+        DbMvcOkulEntities db = new DbMvcOkulEntities(); 
         public ActionResult Index()
         {
-            var derslistesi = db.TBL_DERSLER.ToList();
-            return View(derslistesi);
+            var kulupler = db.TBL_KULUPLER.ToList();
+            return View(kulupler);
         }
     }
 }

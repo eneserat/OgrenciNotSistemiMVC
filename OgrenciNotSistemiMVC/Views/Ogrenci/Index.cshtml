@@ -1,0 +1,34 @@
+﻿@using OgrenciNotSistemiMVC.Models.EntityFramework;
+@model List<TBL_OGRENCILER>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table table-striped table-hover align-middle text-center shadow-sm rounded border-0">
+    <thead class="bg-primary text-white">
+        <tr>
+            <th scope="col">ÖĞRENCİ ID </th>
+            <th scope="col">ÖĞRENCİ ADI </th>
+            <th scope="col">ÖĞRENCİ SOYADI </th>
+            <th scope="col">ÖĞRENCİ FOTOĞRAFI </th>
+            <th scope="col">ÖĞRENCİ CİNSİYET </th>
+            <th scope="col">ÖĞRENCİ KULÜP </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ogr in Model)
+        {
+            <tr class="table-row">
+                <td>@ogr.OGRENCIID</td>
+                <td>@ogr.OGRENCIAD</td>
+                <td>@ogr.OGRENCISOYADI</td>
+                <td>@ogr.OGRENCIFOTOGRAF</td>
+                <td>@ogr.OGRENCICINSIYET</td>
+                <td>@ogr.OGRENCIKULUP</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

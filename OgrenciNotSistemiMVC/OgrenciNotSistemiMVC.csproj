@@ -610,6 +610,7 @@
     <Content Include="Views\Ogrenci\Index.cshtml" />
     <Content Include="Views\Ogrenci\ogrencıekle.cshtml" />
     <Content Include="Views\NotSistemi\Index.cshtml" />
+    <Content Include="Views\Kulup\YeniKulup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

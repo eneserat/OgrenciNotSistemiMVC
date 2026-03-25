@@ -12,23 +12,13 @@ namespace OgrenciNotSistemiMVC.Models.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class TBL_OGRENCILER
+    public partial class TBL_OGRENCIGIRIS
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TBL_OGRENCILER()
-        {
-            this.TBL_NOTLAR = new HashSet<TBL_NOTLAR>();
-        }
-    
         public int OGRENCIID { get; set; }
         public string OGRENCIAD { get; set; }
-        public string OGRENCISOYADI { get; set; }
+        public string OGRENCISOYAD { get; set; }
         public string OGRENCIFOTOGRAF { get; set; }
         public string OGRENCICINSIYET { get; set; }
-        public Nullable<byte> OGRENCIKULUP { get; set; }
-    
-        public virtual TBL_KULUPLER TBL_KULUPLER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TBL_NOTLAR> TBL_NOTLAR { get; set; }
+        public Nullable<int> OGRENCIKULUP { get; set; }
     }
 }

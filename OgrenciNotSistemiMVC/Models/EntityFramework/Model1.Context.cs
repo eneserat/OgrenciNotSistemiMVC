@@ -31,5 +31,6 @@ namespace OgrenciNotSistemiMVC.Models.EntityFramework
         public virtual DbSet<TBL_NOTLAR> TBL_NOTLAR { get; set; }
         public virtual DbSet<TBL_OGRENCILER> TBL_OGRENCILER { get; set; }
         public virtual DbSet<tblCanliDersler> tblCanliDerslers { get; set; }
+        public virtual DbSet<TBL_OGRENCIGIRIS> TBL_OGRENCIGIRIS { get; set; }
     }
 }

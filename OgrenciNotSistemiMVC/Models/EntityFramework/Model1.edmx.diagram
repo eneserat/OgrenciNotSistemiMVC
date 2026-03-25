@@ -14,6 +14,7 @@
         <AssociationConnector Association="DbMvcOkulModel.FK_tblNotlar_tblDersler" ManuallyRouted="false" />
         <AssociationConnector Association="DbMvcOkulModel.FK_tblOgrenciler_tblKulupler" ManuallyRouted="false" />
         <AssociationConnector Association="DbMvcOkulModel.FK_tblNotlar_tblOgrenciler" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DbMvcOkulModel.TBL_OGRENCIGIRIS" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

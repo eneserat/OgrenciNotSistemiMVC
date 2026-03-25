@@ -14,52 +14,64 @@ namespace OgrenciNotSistemiMVC.Controllers
       
         public ActionResult Index()
         {
-            var liste = db.TBL_OGRENCIGIRIS.ToList();
-            return View(liste);
+          
+            return View();  
            
         }
         [HttpGet]
-        public ActionResult OgrenciEkle()
+        public ActionResult OgrenciLogin()
         {
-          
-            ViewBag.Cinsiyetler = new List<SelectListItem>
-        {
-            new SelectListItem { Text = "Erkek", Value = "Erkek" },
-            new SelectListItem { Text = "Kız", Value = "Kız" }
-        };
-
-           
-            ViewBag.Kulupler = db.TBL_KULUPLER
-                                 .AsEnumerable()
-                                 .Select(x => new SelectListItem
-                                 {
-                                     Text = x.KULUPAD,
-                                     Value = x.KULUPID.ToString()
-                                 }).ToList();
-
             return View();
         }
 
+
         [HttpPost]
-        public ActionResult OgrenciEkle(TBL_OGRENCILER p, HttpPostedFileBase OgrFoto)
+        public ActionResult OgrenciLogin(string ogrNo, string sifre)
         {
-            if (OgrFoto != null)
+            var ogrenci = db.TBL_OGRENCIGIRIS
+                            .FirstOrDefault(x => x.OGRENCINO == ogrNo && x.SIFRE == sifre);
+
+            if (ogrenci != null)
             {
-                var yol = Server.MapPath("~/Uploads/");
-                if (!Directory.Exists(yol)) Directory.CreateDirectory(yol);
-
-                var dosyaAdi = Path.GetFileName(OgrFoto.FileName);
-                var tamYol = Path.Combine(yol, dosyaAdi);
-                OgrFoto.SaveAs(tamYol);
-
-                p.OGRENCIFOTOGRAF = "/Uploads/" + dosyaAdi;
+                Session["OGRENCIID"] = ogrenci.OGRENCIID;
+                Session["OGRENCIAD"] = ogrenci.OGRENCIAD;
+                return RedirectToAction("Index", "Ogrenci"); 
             }
 
-            db.TBL_OGRENCILER.Add(p);
-            db.SaveChanges();
+            ViewBag.Hata = "Öğrenci numarası veya şifre yanlış!";
+            return View();
+        }
 
-            TempData["SuccessMessage"] = "Öğrenci eklendi 🔥";
-            return RedirectToAction("OgrenciEkle");
+        
+        [HttpGet]
+        public ActionResult SifreUnuttum()
+        {
+            return View();
+        }
+
+        
+        [HttpPost]
+        public ActionResult SifreUnuttum(string ogrNo)
+        {
+            var ogrenci = db.TBL_OGRENCIGIRIS
+                            .FirstOrDefault(x => x.OGRENCINO == ogrNo);
+
+            if (ogrenci != null)
+            {
+                TempData["Mesaj"] = $"Şifreniz: {ogrenci.SIFRE}";
+                return RedirectToAction("OgrenciLogin");
+            }
+
+            ViewBag.Hata = "Girilen öğrenci numarası sistemde bulunamadı!";
+            return View();
+        }
+
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("OgrenciLogin");
         }
     }
 }
+

@@ -616,6 +616,8 @@
     <Content Include="Views\Kulup\YeniKulup.cshtml" />
     <Content Include="Views\Ogrenci\ogrenciekle.cshtml" />
     <Content Include="Views\Giris\Index.cshtml" />
+    <Content Include="Views\Giris\SifreUnuttum.cshtml" />
+    <Content Include="Views\Giris\OgrenciLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

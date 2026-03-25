@@ -55,6 +55,8 @@
           <Property Name="OGRENCIFOTOGRAF" Type="nvarchar" MaxLength="250" />
           <Property Name="OGRENCICINSIYET" Type="nvarchar" MaxLength="10" />
           <Property Name="OGRENCIKULUP" Type="int" />
+          <Property Name="OGRENCINO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="TBL_OGRENCILER">
           <Key>
@@ -66,6 +68,8 @@
           <Property Name="OGRENCIFOTOGRAF" Type="varchar" MaxLength="200" />
           <Property Name="OGRENCICINSIYET" Type="varchar" MaxLength="5" />
           <Property Name="OGRENCIKULUP" Type="tinyint" />
+          <Property Name="OGRENCINO" Type="nvarchar" MaxLength="20" />
+          <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblCanliDersler">
           <Key>
@@ -196,6 +200,8 @@
           <Property Name="OGRENCIKULUP" Type="Byte" />
           <NavigationProperty Name="TBL_KULUPLER" Relationship="Self.FK_tblOgrenciler_tblKulupler" FromRole="TBL_OGRENCILER" ToRole="TBL_KULUPLER" />
           <NavigationProperty Name="TBL_NOTLAR" Relationship="Self.FK_tblNotlar_tblOgrenciler" FromRole="TBL_OGRENCILER" ToRole="TBL_NOTLAR" />
+          <Property Name="OGRENCINO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblCanliDersler">
           <Key>
@@ -276,6 +282,8 @@
           <Property Name="OGRENCIFOTOGRAF" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="OGRENCICINSIYET" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="OGRENCIKULUP" Type="Int32" />
+          <Property Name="OGRENCINO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -330,6 +338,8 @@
           <EntitySetMapping Name="TBL_OGRENCILER">
             <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_OGRENCILER">
               <MappingFragment StoreEntitySet="TBL_OGRENCILER">
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="OGRENCINO" ColumnName="OGRENCINO" />
                 <ScalarProperty Name="OGRENCIID" ColumnName="OGRENCIID" />
                 <ScalarProperty Name="OGRENCIAD" ColumnName="OGRENCIAD" />
                 <ScalarProperty Name="OGRENCISOYADI" ColumnName="OGRENCISOYADI" />
@@ -355,6 +365,8 @@
           <EntitySetMapping Name="TBL_OGRENCIGIRIS">
             <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_OGRENCIGIRIS">
               <MappingFragment StoreEntitySet="TBL_OGRENCIGIRIS">
+                <ScalarProperty Name="SIFRE" ColumnName="SIFRE" />
+                <ScalarProperty Name="OGRENCINO" ColumnName="OGRENCINO" />
                 <ScalarProperty Name="OGRENCIKULUP" ColumnName="OGRENCIKULUP" />
                 <ScalarProperty Name="OGRENCICINSIYET" ColumnName="OGRENCICINSIYET" />
                 <ScalarProperty Name="OGRENCIFOTOGRAF" ColumnName="OGRENCIFOTOGRAF" />

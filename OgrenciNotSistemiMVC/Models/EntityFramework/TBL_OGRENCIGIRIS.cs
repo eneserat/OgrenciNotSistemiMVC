@@ -20,5 +20,7 @@ namespace OgrenciNotSistemiMVC.Models.EntityFramework
         public string OGRENCIFOTOGRAF { get; set; }
         public string OGRENCICINSIYET { get; set; }
         public Nullable<int> OGRENCIKULUP { get; set; }
+        public string OGRENCINO { get; set; }
+        public string SIFRE { get; set; }
     }
 }

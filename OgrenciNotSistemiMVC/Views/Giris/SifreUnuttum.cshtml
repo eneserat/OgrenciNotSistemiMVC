@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "SifreUnuttum";
+    Layout = null;
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+    body {
+        background: #f4f6f9;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .panel-box {
+        background: white;
+        padding: 60px 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        text-align: center;
+        width: 400px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-login {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<div class="panel-box">
+    <h2 class="mb-4">Öğrenci Girişi</h2>
+    <p class="text-muted mb-4">Öğrenci numaranız ve şifrenizle giriş yapın</p>
+
+    @if (ViewBag.Hata != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Hata</div>
+    }
+    @if (TempData["Mesaj"] != null)
+    {
+        <div class="alert alert-success">@TempData["Mesaj"]</div>
+    }
+
+    <form method="post" action="@Url.Action("OgrenciLogin", "Giris")">
+        <div class="input-group">
+            <label>Öğrenci Numarası</label>
+            <input type="text" name="ogrNo" class="form-control" placeholder="Öğrenci Numaranız" required />
+        </div>
+
+        <div class="input-group">
+            <label>Şifre</label>
+            <input type="password" name="sifre" class="form-control" placeholder="Şifreniz" required />
+        </div>
+
+        <button class="btn btn-primary btn-login mb-3">Giriş Yap</button>
+    </form>
+
+    <div>
+        <a href="@Url.Action("SifreUnuttum", "Giris")">Şifremi Unuttum?</a>
+    </div>
+</div>

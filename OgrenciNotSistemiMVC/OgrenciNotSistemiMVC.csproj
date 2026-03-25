@@ -608,9 +608,9 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Views\Kulup\Index.cshtml" />
     <Content Include="Views\Ogrenci\Index.cshtml" />
-    <Content Include="Views\Ogrenci\ogrencıekle.cshtml" />
     <Content Include="Views\NotSistemi\Index.cshtml" />
     <Content Include="Views\Kulup\YeniKulup.cshtml" />
+    <Content Include="Views\Ogrenci\ogrenciekle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

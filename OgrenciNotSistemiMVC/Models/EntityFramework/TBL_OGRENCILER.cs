@@ -26,7 +26,8 @@ namespace OgrenciNotSistemiMVC.Models.EntityFramework
         public string OGRENCIFOTOGRAF { get; set; }
         public string OGRENCICINSIYET { get; set; }
         public Nullable<byte> OGRENCIKULUP { get; set; }
-    
+       
+
         public virtual TBL_KULUPLER TBL_KULUPLER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TBL_NOTLAR> TBL_NOTLAR { get; set; }

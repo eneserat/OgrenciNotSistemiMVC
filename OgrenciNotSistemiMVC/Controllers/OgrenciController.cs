@@ -17,39 +17,43 @@ namespace OgrenciNotSistemiMVC.Controllers
 
             return View(ogrencılıstele);
         }
-        public ActionResult ogrencıekle()
+        [HttpGet]
+        public ActionResult ogrenciekle()
         {
-            ViewBag.Ogrencıler = new SelectList(db.TBL_OGRENCILER, "OGRENCIID", "OGRENCIAD");
 
+
+            List<SelectListItem> items = (from i in db.TBL_KULUPLER.ToList()
+                                          select new SelectListItem
+                                          {
+                                              Text = i.KULUPAD,
+                                              Value = i.KULUPID.ToString()
+                                          }).ToList();
+            ViewBag.ıtms = items;
             return View();
+                                          
+
+
         }
+
+       
 
         [HttpPost]
        
-        public ActionResult OgrenciEkle(TBL_OGRENCILER ogrenci, HttpPostedFileBase OgrFoto)
+        public ActionResult ogrenciekle(TBL_OGRENCILER p4)
         {
-            if (OgrFoto != null && OgrFoto.ContentLength > 0)
+            var klp = db.TBL_KULUPLER.Where(m=>m.KULUPID==p4.TBL_KULUPLER.KULUPID).FirstOrDefault();
+            p4.TBL_KULUPLER = klp;
+            if(ModelState.IsValid)
             {
-                var uploadDir = Server.MapPath("~/Uploads/Ogrenciler/");
-                if (!Directory.Exists(uploadDir)) Directory.CreateDirectory(uploadDir);
-
-                var fileName = Path.GetFileName(OgrFoto.FileName);
-                var path = Path.Combine(uploadDir, fileName);
-                OgrFoto.SaveAs(path);
-                ogrenci.OGRENCIFOTOGRAF = "/Uploads/Ogrenciler/" + fileName;
-            }
-
-            if (ModelState.IsValid)
-            {
-                db.TBL_OGRENCILER.Add(ogrenci);
+                db.TBL_OGRENCILER.Add(p4);
                 db.SaveChanges();
-                TempData["SuccessMessage"] = "Öğrenci Sisteme Başarıyla Kaydedildi";
-                return RedirectToAction("Index");
+
+                TempData["SuccessMessage"] = "Öğrenci  Sisteme Başarıyla Eklendi!";
+                return RedirectToAction("ogrenciekle");
             }
 
-           
-            ViewBag.Dersler = new SelectList(db.TBL_DERSLER, "DERSID", "DERSAD");
-            return View(ogrenci);
+            return View(p4);
+
         }
     }
 }

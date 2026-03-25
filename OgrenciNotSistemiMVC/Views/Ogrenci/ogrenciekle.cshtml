@@ -1,0 +1,57 @@
+﻿@model OgrenciNotSistemiMVC.Models.EntityFramework.TBL_OGRENCILER
+@{
+    ViewBag.Title = "ogrenciekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<form method="post" class="form-group">
+    <div style="margin-top:10px">
+        <label>
+            Adınızı Girin
+        </label>
+        <input type="text" class="form-control" name="OGRENCIAD" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Soyadınızı Girin
+        </label>
+        <input type="text" class="form-control" name="OGRENCISOYADI" />
+    </div>
+    <div style="margin-top:10px">
+        <label>
+            Fotoğrafı Yükle
+        </label>
+        <input type="text" class="form-control" name="OGRENCIFOTOGRAF" />
+    </div>
+    <div style="margin-top:10px">
+            <label>
+             Kulüp Adını Seçiniz 
+            </label>
+        @Html.DropDownListFor(m => m.TBL_KULUPLER.KULUPID, (List<SelectListItem>)ViewBag.ıtms, new { @class = "form-control" })
+        
+
+           
+    <div>
+        
+
+    </form>
+
+    <div style="margin-top:10px">
+        <button class="btn btn-primary">
+            Öğrenci Ekle
+
+        </button>
+
+    </div>
+</form>
+
+

@@ -71,6 +71,18 @@
           <Property Name="OGRENCINO" Type="nvarchar" MaxLength="20" />
           <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="TBL_ONLINE_DERSLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DersAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="250" />
+          <Property Name="BaslangicTarihi" Type="datetime" />
+          <Property Name="BitisTarihi" Type="datetime" />
+          <Property Name="MeetingLink" Type="nvarchar" MaxLength="500" />
+          <Property Name="VideoUrl" Type="nvarchar" MaxLength="500" />
+        </EntityType>
         <EntityType Name="tblCanliDersler">
           <Key>
             <PropertyRef Name="CANLIDERSID" />
@@ -126,6 +138,7 @@
           <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OGRENCIGIRIS" EntityType="Self.TBL_OGRENCIGIRIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OGRENCILER" EntityType="Self.TBL_OGRENCILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ONLINE_DERSLER" EntityType="Self.TBL_ONLINE_DERSLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCanliDersler" EntityType="Self.tblCanliDersler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblNotlar_tblDersler" Association="Self.FK_tblNotlar_tblDersler">
             <End Role="TBL_DERSLER" EntitySet="TBL_DERSLER" />
@@ -271,6 +284,7 @@
             <End Role="TBL_NOTLAR" EntitySet="TBL_NOTLAR" />
           </AssociationSet>
           <EntitySet Name="TBL_OGRENCIGIRIS" EntityType="DbMvcOkulModel.TBL_OGRENCIGIRIS" />
+          <EntitySet Name="TBL_ONLINE_DERSLER" EntityType="DbMvcOkulModel.TBL_ONLINE_DERSLER" />
         </EntityContainer>
         <EntityType Name="TBL_OGRENCIGIRIS">
           <Key>
@@ -284,6 +298,18 @@
           <Property Name="OGRENCIKULUP" Type="Int32" />
           <Property Name="OGRENCINO" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="SIFRE" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_ONLINE_DERSLER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DersAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BaslangicTarihi" Type="DateTime" Precision="3" />
+          <Property Name="BitisTarihi" Type="DateTime" Precision="3" />
+          <Property Name="MeetingLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VideoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -373,6 +399,19 @@
                 <ScalarProperty Name="OGRENCISOYAD" ColumnName="OGRENCISOYAD" />
                 <ScalarProperty Name="OGRENCIAD" ColumnName="OGRENCIAD" />
                 <ScalarProperty Name="OGRENCIID" ColumnName="OGRENCIID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ONLINE_DERSLER">
+            <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_ONLINE_DERSLER">
+              <MappingFragment StoreEntitySet="TBL_ONLINE_DERSLER">
+                <ScalarProperty Name="VideoUrl" ColumnName="VideoUrl" />
+                <ScalarProperty Name="MeetingLink" ColumnName="MeetingLink" />
+                <ScalarProperty Name="BitisTarihi" ColumnName="BitisTarihi" />
+                <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -135,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CanliDersController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\GirisController.cs" />
     <Compile Include="Controllers\KulupController.cs" />
@@ -177,6 +178,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EntityFramework\TBL_OGRENCILER.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EntityFramework\TBL_ONLINE_DERSLER.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -618,6 +622,8 @@
     <Content Include="Views\Giris\Index.cshtml" />
     <Content Include="Views\Giris\SifreUnuttum.cshtml" />
     <Content Include="Views\Giris\OgrenciLogin.cshtml" />
+    <Content Include="Views\CanliDers\OnlineDersler.cshtml" />
+    <Content Include="Views\CanliDers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

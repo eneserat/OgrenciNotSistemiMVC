@@ -71,6 +71,17 @@
           <Property Name="OGRENCINO" Type="nvarchar" MaxLength="20" />
           <Property Name="SIFRE" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="TBL_OGRETMENGIRIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="AdSoyad" Type="nvarchar" MaxLength="100" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
         <EntityType Name="TBL_ONLINE_DERSLER">
           <Key>
             <PropertyRef Name="ID" />
@@ -138,6 +149,7 @@
           <EntitySet Name="TBL_NOTLAR" EntityType="Self.TBL_NOTLAR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OGRENCIGIRIS" EntityType="Self.TBL_OGRENCIGIRIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_OGRENCILER" EntityType="Self.TBL_OGRENCILER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_OGRETMENGIRIS" EntityType="Self.TBL_OGRETMENGIRIS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TBL_ONLINE_DERSLER" EntityType="Self.TBL_ONLINE_DERSLER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCanliDersler" EntityType="Self.tblCanliDersler" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblNotlar_tblDersler" Association="Self.FK_tblNotlar_tblDersler">
@@ -285,6 +297,7 @@
           </AssociationSet>
           <EntitySet Name="TBL_OGRENCIGIRIS" EntityType="DbMvcOkulModel.TBL_OGRENCIGIRIS" />
           <EntitySet Name="TBL_ONLINE_DERSLER" EntityType="DbMvcOkulModel.TBL_ONLINE_DERSLER" />
+          <EntitySet Name="TBL_OGRETMENGIRIS" EntityType="DbMvcOkulModel.TBL_OGRETMENGIRIS" />
         </EntityContainer>
         <EntityType Name="TBL_OGRENCIGIRIS">
           <Key>
@@ -310,6 +323,17 @@
           <Property Name="BitisTarihi" Type="DateTime" Precision="3" />
           <Property Name="MeetingLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="VideoUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_OGRETMENGIRIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="AdSoyad" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -411,6 +435,18 @@
                 <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />
                 <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
                 <ScalarProperty Name="DersAdi" ColumnName="DersAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_OGRETMENGIRIS">
+            <EntityTypeMapping TypeName="DbMvcOkulModel.TBL_OGRETMENGIRIS">
+              <MappingFragment StoreEntitySet="TBL_OGRETMENGIRIS">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

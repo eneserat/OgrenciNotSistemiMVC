@@ -33,5 +33,6 @@ namespace OgrenciNotSistemiMVC.Models.EntityFramework
         public virtual DbSet<tblCanliDersler> tblCanliDerslers { get; set; }
         public virtual DbSet<TBL_OGRENCIGIRIS> TBL_OGRENCIGIRIS { get; set; }
         public virtual DbSet<TBL_ONLINE_DERSLER> TBL_ONLINE_DERSLER { get; set; }
+        public virtual DbSet<TBL_OGRETMENGIRIS> TBL_OGRETMENGIRIS { get; set; }
     }
 }

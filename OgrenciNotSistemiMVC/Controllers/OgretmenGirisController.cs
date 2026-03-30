@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using OgrenciNotSistemiMVC.Helpers; 
+using OgrenciNotSistemiMVC.Helpers;
 using OgrenciNotSistemiMVC.Models.EntityFramework;
 
 namespace OgrenciNotSistemiMVC.Controllers
@@ -11,11 +11,6 @@ namespace OgrenciNotSistemiMVC.Controllers
         DbMvcOkulEntities db = new DbMvcOkulEntities();
 
         [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpGet]
         public ActionResult OgretmenLogin()
         {
             return View();
@@ -23,19 +18,18 @@ namespace OgrenciNotSistemiMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(string ogretmenAdi, string sifre)
+        public ActionResult OgretmenLogin(string ogretmenAdi, string sifre)
         {
-
-            string hashedPassword = PasswordHelper.HashPassword(sifre); 
-
+          
             var ogretmen = db.TBL_OGRETMENGIRIS
-                             .FirstOrDefault(x => x.KullaniciAdi == ogretmenAdi && x.Sifre == hashedPassword);
+                             .FirstOrDefault(x => x.KullaniciAdi == ogretmenAdi && x.Sifre == sifre);
 
             if (ogretmen != null)
             {
-                Session["ID"] = ogretmen.ID;
-                Session["KullaniciAdi"] = ogretmen.KullaniciAdi;
-                return RedirectToAction("Login", "OgretmenGiris");
+                Session["OGRETMENID"] = ogretmen.ID;
+                Session["OGRETMENISMI"] = ogretmen.KullaniciAdi;
+
+                return RedirectToAction("Index", "Ogrenci");
             }
 
             ViewBag.Hata = "Kullanıcı adı veya şifre yanlış!";
